@@ -29,7 +29,7 @@ main {
     background-position-y: 100%;
     background-position-x: 50%;
     background-repeat: no-repeat;
-    transition: background-size 0.2s ease-in-out;
+    transition: background-size 0.40s ease-in-out;
 }
 
 .links li a:hover {
