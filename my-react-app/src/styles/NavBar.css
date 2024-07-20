@@ -1,0 +1,39 @@
+nav {
+    padding: 30px;
+    background-color: rgb(34, 34, 34);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+main {
+    margin-top: 89px;
+}
+
+.links {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+}
+
+.links li a {
+    color: white;
+    text-decoration: none;
+    margin-right: 30px;
+    font-family: Futura, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    background-image: linear-gradient(rgb(200, 200, 200), rgb(200, 200, 200));
+    background-size: 0% 0.1em;
+    background-position-y: 100%;
+    background-position-x: 50%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out;
+}
+
+.links li a:hover {
+    color: rgb(200, 200, 200);
+    cursor: pointer;
+    background-size: 100% 0.1em;
+}
