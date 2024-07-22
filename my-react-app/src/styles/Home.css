@@ -1,0 +1,11 @@
+.page {
+    width:90%;
+    background-color: white;
+    margin:auto;
+    border-radius: 5px;
+    padding: 15px;
+    border: 1px solid hsla(0, 0%, 33%, 0.625);
+    box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.35);
+    /* background: linear-gradient(110deg, #ffffff 5%, linear-gradient(110deg, #e6e6e6 95%, #ffffff 95%)); */
+    background: linear-gradient(110deg, #ffffff 33%, rgba(255, 255, 255, 0) 33%), linear-gradient(110deg, #e6e6e6 66%, #ffffff 66%)
+}

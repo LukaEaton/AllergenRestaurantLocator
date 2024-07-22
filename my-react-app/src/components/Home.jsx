@@ -1,5 +1,14 @@
+import '../styles/Home.css'
+
 function Home(){
-    return <div>Home Page</div>
+    return (
+        <>
+            <div className="page">
+                Home Page
+                
+            </div>
+        </>
+    )
 }
 
 export default Home

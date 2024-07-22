@@ -24,9 +24,9 @@ function NavBar(){
                 </li>
                 </ul>
             </nav>
-            <main>
+            <div id="body">
                 <Outlet/>
-            </main>
+            </div>
         </>
     )
 }
