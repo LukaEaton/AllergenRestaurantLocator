@@ -8,6 +8,7 @@ The inspiration behind this app is to find nice local restaurants that I can tak
 ## The App Itself
 ### Technologies Used
 Front-End: React + Vite
+
 Back-End: Express/NodeJS
 
 ### Running the App
