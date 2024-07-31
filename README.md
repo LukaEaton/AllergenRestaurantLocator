@@ -1,8 +1,13 @@
-# React + Vite
+# Allergy-friendly Restaurant Locator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Purpose
+This app is designed to be a tool for discovering new restaurants that have been known to accommodate for people's allergies. It can be extremely difficult to eat out since many places tend to cook with common allergens or cross-contaminate with common allergens.
 
-Currently, two official plugins are available:
+The inspiration behind this app is to find nice local restaurants that I can take my Fiance out to, as over the years it has been hard to find new places to eat at.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## The App Itself
+### Technologies Used
+Front-End: React + Vite
+
+### Running the App
+Once downloaded, open up / change directories to the main project folder, in the terminal execute **npm run dev** to host the React App on a localhost server. Then, open up a browser and navigate to **http://localhost:5173/** to view the App.
