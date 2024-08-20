@@ -1,11 +1,41 @@
 .page {
-    width:90%;
+    padding: 20px;
     background-color: white;
-    margin:auto;
-    border-radius: 5px;
-    padding: 15px;
-    border: 1px solid hsla(0, 0%, 33%, 0.625);
-    box-shadow: 10px 10px 10px 0px rgba(0,0,0,0.35);
-    /* background: linear-gradient(110deg, #ffffff 5%, linear-gradient(110deg, #e6e6e6 95%, #ffffff 95%)); */
-    background: linear-gradient(110deg, #ffffff 33%, rgba(255, 255, 255, 0) 33%), linear-gradient(110deg, #e6e6e6 66%, #ffffff 66%)
+    width:50%;
+}
+
+.outlined-floating-label-input {
+    position: relative;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    width: 50%;
+}
+
+.outlined-floating-label-input input {
+    width: 100%;
+    padding: 12px 12px 12px 12px;
+    font-size: 16px;
+    border: 1px solid #757575;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.outlined-floating-label-input label {
+    position: absolute;
+    left: 12px;
+    top: 16px;
+    font-size: 16px;
+    color: #757575;
+    background-color: white;
+    padding: 0 4px;
+    pointer-events: none;
+    transition: 0.2s ease all;
+}
+
+.outlined-floating-label-input input:focus ~ label,
+.outlined-floating-label-input input:valid ~ label {
+    top: -8px;
+    font-size: 12px;
+    color: #5264AE;
 }
