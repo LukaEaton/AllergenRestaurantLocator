@@ -18,4 +18,7 @@ Once downloaded, open up / change directories to the client folder and in the te
 
 To run the Server-side API, in a new terminal open up / change directories to the server folder and execute **npm run dev** to host the API on localhost (port 8080).
 
-Note: Use of external API's in this app requires API Keys from the following: Google Maps API, Open AI API. You must get your own API keys and add them to the .env_sample file. Once completed, rename the .env_sample file to .env
+#### Notes: 
+Use of external API's in this app requires API Keys from the following: Google Maps API, Open AI API. You must get your own API keys and add them to the .env_sample file. Once completed, rename the .env_sample file to .env
+
+Ensure the packages used for both front-end and back-end are installed when running either. Required packages can be found in the package.json file in each of the client/server directories. To install, switch into the respective client/server directory in a terminal and execute: **npm install PACKAGE_NAME**.
