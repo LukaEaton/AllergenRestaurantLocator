@@ -1,47 +1,46 @@
-const express = require("express");
+// Importing dependencies
+import express from 'express';
+import { config } from 'dotenv';
+import { OpenAI } from 'openai';
+
+// Load environment variables
+config();
+
+// Initialize OpenAI API
+const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+});
+
+// Creating new express app
 const app = express();
-app.use(express.json());
-
-require('dotenv').config();
-
-const chrome = require('selenium-webdriver/chrome');
-const {Builder, By, Key, until} = require('selenium-webdriver');
-const screen = {
-    width: 640,
-    heigh: 480
-}
-
-const url = 'https://www.allergyeats.com/';
+// Body parsing
+app.use(express.json())
 
 // Google Maps API Key
 // Geocoding API to get coordinates from address: https://developers.google.com/maps/documentation/geocoding
 // potentially use the pollen API
 const maps_api_key = process.env.MAPS_API_KEY;
 
-let driver = new Builder()
-    .forBrowser('chrome')
-    .build();
+const prompt = "give a JSON array of the name, address, phone number, and url of allergy-friendly restaurants near ";
 
 app.get("/api", (req, res) => {
     res.json({test: ["this","is","a","test"]});
 });
 
-app.post('/search', (req, res) => {
-    // console.log(req.body);
-    driver.get(url).then( () => {
-        driver.findElements(By.xpath('//*[@id="home-search-criteria"]/div/form/div[1]/fieldset/div/label/input'))
-        .then( arr => {
-            for(let i = 0; i < arr.length; i++){
-                arr[i].getAttribute('value')
-                .then( val => {
-                    console.log(val);
-                });
-                // arr[i].click()
-                // .then( () => {
-                //     console.log('clicked');
-                // });
+
+//curl -X POST -H "Content-type:application/json" -d "{\"location\":\"Philadelphia, PA\"}" "localhost:8080/search" 
+app.post('/search', async (req, res) => {
+    // res.json({response:prompt+req.body.location});
+    openai.chat.completions.create({
+        model: "gpt-3.5-turbo",
+        messages: [
+            {
+                role : "user",
+                content : prompt + "Royersford, PA"
             }
-        });
+        ]
+    }).then( data => {
+        res.json(data.choices[0].message.content);
     });
 });
 
