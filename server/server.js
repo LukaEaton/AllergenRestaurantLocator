@@ -2,6 +2,7 @@
 import express from 'express';
 import { config } from 'dotenv';
 import { OpenAI } from 'openai';
+import cors from 'cors';
 
 // Load environment variables
 config();
@@ -16,6 +17,11 @@ const app = express();
 // Body parsing
 app.use(express.json())
 
+const corsOptions = {
+    origin : 'http://localhost:5173'
+}
+app.use(cors(corsOptions));
+
 // Google Maps API Key
 // Geocoding API to get coordinates from address: https://developers.google.com/maps/documentation/geocoding
 // potentially use the pollen API
@@ -29,14 +35,14 @@ app.get("/api", (req, res) => {
 
 
 //curl -X POST -H "Content-type:application/json" -d "{\"location\":\"Philadelphia, PA\"}" "localhost:8080/search" 
-app.post('/search', async (req, res) => {
-    // res.json({response:prompt+req.body.location});
+app.post('/search/:location', async (req, res) => {
+    console.log(prompt + req.params.location);
     openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
             {
                 role : "user",
-                content : prompt + "Royersford, PA"
+                content : prompt + req.params.location + " within a 25 mile radius"
             }
         ]
     }).then( data => {
