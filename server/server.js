@@ -27,7 +27,8 @@ app.use(cors(corsOptions));
 // potentially use the pollen API
 const maps_api_key = process.env.MAPS_API_KEY;
 
-const prompt = "give a JSON array of the name, address, phone number, and url of allergy-friendly restaurants near ";
+// Prompt for OpenAI API
+const prompt = "give an array of JSON objects, with each object having the name, address, phone number, and url of allergy-friendly restaurants near ";
 
 app.get("/api", (req, res) => {
     res.json({test: ["this","is","a","test"]});
@@ -35,14 +36,14 @@ app.get("/api", (req, res) => {
 
 
 //curl -X POST -H "Content-type:application/json" -d "{\"location\":\"Philadelphia, PA\"}" "localhost:8080/search" 
-app.post('/search/:location', async (req, res) => {
-    console.log(prompt + req.params.location);
+app.post('/search', async (req, res) => {
+    // console.log(prompt + req.params.location);
     openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
             {
                 role : "user",
-                content : prompt + req.params.location + " within a 25 mile radius"
+                content : prompt + req.query.location + " within a " + req.query.radius + " mile radius"
             }
         ]
     }).then( data => {
